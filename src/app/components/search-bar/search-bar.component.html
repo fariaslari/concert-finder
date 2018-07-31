@@ -1,0 +1,5 @@
+<div class="search-bar" [ngClass]="{'untouched': !isSubmited}">
+  <input type="text" placeholder="type the name of the artist" id="artistName" [(ngModel)]="artistName"  (keydown.enter)="submit()" required />
+  
+  <button class="btn" type="submit" (click)="submit()">find</button>
+</div>

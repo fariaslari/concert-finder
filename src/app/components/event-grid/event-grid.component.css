@@ -1,0 +1,85 @@
+.card-event{
+    position: relative;
+    left: -10px;
+    float: left;
+    width: 100%;
+    padding: 5px 15px 5px 25px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 8px 8px 15px rgba(0,0,0,.5);
+    margin-bottom: 50px;    
+    min-height: 200px;
+}
+
+.card-event .filter{
+    position: relative;
+    padding: 0px 10%;
+    border-radius: 25px;
+    border: 2px solid #069F71;
+}
+
+.card-event .filter .btn{
+    font-family: 'Montserrat', sans-serif;
+    background-color: #46BC98;
+    color: #FFF;
+    border: none;
+    border-bottom: solid 4px #027855;
+    border-right: solid 4px #027855;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: 0 20px;
+    width: 115px;
+    height: 30px;
+    cursor: pointer;
+    outline: none;
+    text-transform: lowercase;
+}
+
+    .card-event .filter .btn:hover{
+        background-color: #72D3B6;
+        color: #027855;
+    }
+
+
+@media(max-width:720px){
+    .card-event {
+        position: relative;
+        left: 0;
+        float: initial;
+        width: auto;
+    }
+
+    .card-event .filter {
+        padding: 10px 0;
+    }
+
+    .card-event .filter .btn {
+        display: block;
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 15px;
+        height: 45px;
+    }
+}
+
+
+@media(max-width:400px){
+    .card-event {
+        position: relative;
+        left: 0;
+        float: initial;
+        width: auto;
+    }
+
+    .card-event .filter {
+        padding: 10px 0;
+    }
+
+    .card-event .filter .btn {
+        display: block;
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 15px;
+        height: 45px;
+    }
+}

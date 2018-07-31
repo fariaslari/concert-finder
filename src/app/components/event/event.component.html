@@ -1,0 +1,11 @@
+<div class="container">
+  <span class="location">{{eventInfo.location_name}}</span>
+  <span class="date">{{eventInfo.date}}</span>
+    <span class="description">
+      {{eventInfo.city}}/ {{eventInfo.country}}
+    </span>
+    <div *ngIf="eventInfo.sales_has_started" class="area-btn">
+      <a class="btn" href="{{eventInfo.tickets_url}}" target="_blank">buy ticket</a>
+    </div>
+    <span *ngIf="!eventInfo.sales_has_started" class="sales-start">Sales start at: {{eventInfo.on_sale_date || 'Soon'}}</span>
+</div>

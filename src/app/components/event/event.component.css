@@ -1,0 +1,93 @@
+.container{
+    padding: 20px;
+    margin: 10px auto;
+    border-radius: 20px;
+    box-shadow: 3px 5px 16px rgba(0,0,0,0.25);
+    height: 95px;
+}
+
+span{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.location{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #27a982;
+    float: left;
+}
+
+.date{
+    font-weight: bold;
+    float: right;
+    color: #5e5e5e;
+    font-size: 1.5rem;
+}
+
+.description{
+    float: left;
+    clear: both;
+    margin: 10px 0;
+    font-size: 1rem;
+}
+
+.area-btn{
+    float: right;
+    margin: 20px 0;
+}
+
+.area-btn .btn{
+    font-family: 'Montserrat', sans-serif;
+    background-color: #DD3375;
+    color: #FFF;
+    border: none;
+    border-bottom: solid 4px #D00855;
+    border-right: solid 4px #D00855;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 30px;
+    width: 115px;
+    height: 30px;
+    cursor: pointer;
+    outline: none;
+    text-transform: lowercase;
+    text-decoration: none;
+    padding: 5px 20px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none;                   
+}
+
+    .area-btn .btn:hover{
+        background-color: #EE80AA;
+        color: #D00855;
+    }
+
+.sales-start {
+    float: right;
+    color: #5e5e5e;
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+@media(max-width:700px){
+    .container{
+        min-height: 230px;
+        height: auto;
+    }
+
+    .location, .date, .description, .sales-start, .area-btn,.area-btn .btn{
+        position: relative;
+        width: 100%;
+        text-align: center;
+    }
+
+    .area-btn .btn{
+        display: block;
+        padding: 5px 0;
+    }
+}

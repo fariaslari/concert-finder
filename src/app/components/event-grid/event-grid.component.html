@@ -1,0 +1,23 @@
+<div class="card-event">
+  <div class="filter">
+    <mat-form-field>
+      <input matInput [matDatepicker]="dtpInitial" [(ngModel)]="initialDate" disabled>
+      <mat-datepicker-toggle matSuffix [for]="dtpInitial"></mat-datepicker-toggle>
+      <mat-datepicker #dtpInitial disabled="false"></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [matDatepicker]="dtpFinal" [(ngModel)]="finalDate" disabled>
+      <mat-datepicker-toggle matSuffix [for]="dtpFinal"></mat-datepicker-toggle>
+      <mat-datepicker #dtpFinal disabled="false"></mat-datepicker>
+    </mat-form-field>
+    <button class="btn" type="submit" (click)="filterByDate()">Filter</button>
+  </div>
+  <mat-spinner *ngIf="loading" class="spinner"></mat-spinner>
+  <div *ngIf="loading" class="cover"></div>
+  <div *ngIf="eventsData">
+    <app-event *ngFor="let ev of eventsData.events" [eventInfo]="ev"></app-event>
+  </div>
+  <div *ngIf="!eventsData && !loading">
+    <p class="message">We could not find events for this artist.</p>
+  </div>
+</div>

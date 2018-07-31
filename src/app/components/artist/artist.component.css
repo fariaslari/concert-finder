@@ -1,0 +1,76 @@
+.card-artist{
+    position: relative;
+    background-color: #27A982;
+    width: 25%;
+    border: 3px solid #027855;
+    border-radius: 10px;
+    padding: 35px 10px;
+    float: left;
+    box-shadow: 4px 8px 10px rgba(0,0,0,.45);
+    z-index: 1;
+}
+
+    .card-artist img{
+        width: 70%;
+        margin: 0px auto;
+        display: block;
+        border: 3px solid #027855;
+        border-radius: 50%;
+    }
+
+    .card-artist p.name{
+        font-family: 'Montserrat', sans-serif;
+        text-align: center;
+        color: #fff;
+        text-shadow: 2px 2px 2px #069F71;
+        font-weight: bold;
+        font-size: 2rem;
+    }
+
+    .card-artist p.facebook{
+        margin: 0 auto;
+        text-align: center
+    }
+
+    .card-artist p.facebook a{
+        font-size: 3rem;
+        color: #351a8c;
+    }
+
+.container{
+    position: relative;
+    margin: 15px auto;
+    width: 80%;
+}
+
+.card-event{
+    position: relative;
+    float: left;
+    width: 70%;
+}
+
+@media(max-width:720px){
+    .card-artist {
+        width: 95%;
+    }   
+
+    .card-artist img {
+        width: 25%;
+        float: left;
+        margin: 0px 30px;
+    }
+
+    .card-artist p.name {
+        text-align: left;
+        margin: 10px 0px 10px 35%;
+    }
+
+    .card-artist p.facebook {
+        text-align: left;
+    }
+
+    .card-event {
+        width: 100%;
+        margin: 20px 0;
+    }
+}
