@@ -19,47 +19,47 @@ export class ArtistComponent implements OnInit {
   loading: boolean;
   @Output() updateEventGrid = new EventEmitter<any>();
 
-  constructor(private ArtistService: ArtistService, private cache: CacheService) { }
+  constructor(private artistService: ArtistService, private cache: CacheService) { }
 
   ngOnInit() {
     this.isSubmited = false;
   }
 
-  filterChanged(artistName: string){
-    
-    if(isString(artistName)){
-      let cacheData = this.cache.get("artist_" + artistName, true);
+  filterChanged(artistName: string) {
+
+    if (isString(artistName)) {
+      const cacheData = this.cache.get('artist_' + artistName, true);
       this.filterData = artistName;
-      if(cacheData){
+      if (cacheData) {
         this.artistData = cacheData;
-      }else{
+      } else {
         this.fetchData();
       }
       this.isSubmited = true;
     }
   }
 
-  private fetchData(){
+  private fetchData() {
     this.artistData = null;
     this.loading = true;
-    this.ArtistService.getArtist(this.filterData)
+    this.artistService.getArtist(this.filterData)
         .subscribe(res => {
             if (res.hasOwnProperty('id')) {
                 this.artistData = this.formatData(res);
-                this.cache.set("artist_" + this.filterData, this.artistData, true);
+                this.cache.set('artist_' + this.filterData, this.artistData, true);
                 this.loading = false;
-            }else{
+            } else {
               this.artistData = null;
               this.loading = false;
             }
-        },(err) => {
+        }, (err) => {
           this.artistData = null;
           this.loading = false;
       });
   }
 
-  private formatData(res: any) : Artist{
-    return new Artist(res.name, res.image_url, (res.facebook_page_url != "" ? res.facebook_page_url : null));
+  private formatData(res: any): Artist {
+    return new Artist(res.name, res.image_url, (res.facebook_page_url !== '' ? res.facebook_page_url : null));
   }
 
 }

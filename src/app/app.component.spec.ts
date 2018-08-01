@@ -21,10 +21,10 @@ describe('AppComponent', () => {
       imports: [
         FormsModule,
         HttpClientModule,
-        MatDatepickerModule, 
-        MatFormFieldModule, 
-        MatInputModule, 
-        MatNativeDateModule, 
+        MatDatepickerModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatNativeDateModule,
         MatProgressSpinnerModule
       ]
     }).compileComponents();

@@ -22,14 +22,15 @@ export class EventGridComponent implements OnInit {
   @Input() filter: any;
   @Input() upcomingEvents: number;
 
-  constructor(private EventsService: EventsService, private cache: CacheService) { }
+  constructor(private eventsService: EventsService, private cache: CacheService) { }
 
   ngOnInit() {
-      let cacheData = this.cache.get("events_" + this.filter, true);
-      if(cacheData && this.currentFilter == this.filter){
+      const cacheData = this.cache.get('events_' + this.filter, true);
+      this.currentFilter = this.filter;
+
+      if (cacheData) {
         this.eventsData = cacheData;
-      }else{
-        this.currentFilter = this.filter;
+      } else {
         this.initialDate = null;
         this.finalDate = null;
         this.fetchData();
@@ -37,29 +38,36 @@ export class EventGridComponent implements OnInit {
   }
 
   ngOnChanges() {
-      this.currentFilter = this.filter;
-      this.initialDate = null;
-      this.finalDate = null;
-      this.fetchData();
+    const cacheData = this.cache.get('events_' + this.filter, true);
+
+    if (cacheData) {
+      this.eventsData = cacheData;
+    } else {
+      if (this.currentFilter !== this.filter) {
+        this.currentFilter = this.filter;
+        this.initialDate = null;
+        this.finalDate = null;
+        this.fetchData();
+      }
+    }
   }
 
-
-  filterByDate(){
-    this.interval = moment(this.initialDate).format("YYYY-MM-DD") + "," + moment(this.finalDate).format("YYYY-MM-DD");
+  filterByDate() {
+    this.interval = moment(this.initialDate).format('YYYY-MM-DD') + ',' + moment(this.finalDate).format('YYYY-MM-DD');
 
     this.fetchData();
   }
 
-  private fetchData(){
+  private fetchData() {
     this.eventsData = null;
     this.loading = true;
-     this.EventsService.getEvents(this.currentFilter, (this.interval || null))
+     this.eventsService.getEvents(this.currentFilter, (this.interval || null))
         .subscribe(res => {
             if (res && Object.keys(res).length > 0) {
-                this.eventsData = this.formatData(res);
-                this.cache.set("events_" + this.filter, this.eventsData, true);
-                this.loading = false;
-            }else{
+              this.eventsData = this.formatData(res);
+              this.cache.set('events_' + this.filter, this.eventsData, true);
+              this.loading = false;
+            } else {
               this.eventsData = null;
               this.loading = false;
             }
@@ -69,11 +77,11 @@ export class EventGridComponent implements OnInit {
         });
   }
 
-  private formatData(res: any) : ArtistEvents{
-    let events: EventInfo[] = res.map((ev)=>{
+  private formatData(res: any): ArtistEvents {
+    const events: EventInfo[] = res.map((ev) => {
       return new EventInfo(ev);
     });
-    
+
     return new ArtistEvents(this.upcomingEvents, events);
   }
 

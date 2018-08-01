@@ -15,7 +15,7 @@ describe('ArtistService', () => {
       ],
       providers: [ArtistService]
     });
-    
+
     artistService = TestBed.get(ArtistService);
     httpMock = TestBed.get(HttpTestingController);
   });
@@ -25,7 +25,7 @@ describe('ArtistService', () => {
   }));
 
   it('should return an Observable', () => {
-    const name = "dummyArtist";
+    const name = 'dummyArtist';
     const artistData = { id: '123' };
 
     artistService.getArtist(name).subscribe(art => {
@@ -34,7 +34,7 @@ describe('ArtistService', () => {
     });
 
     const req = httpMock.expectOne(`${environment.endpoint}/artists/${name}?app_id=${environment.app_id}`);
-    expect(req.request.method).toBe("GET");
+    expect(req.request.method).toBe('GET');
     req.flush(artistData);
   });
 });

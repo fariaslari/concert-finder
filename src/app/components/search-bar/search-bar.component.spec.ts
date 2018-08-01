@@ -9,10 +9,10 @@ describe('SearchBarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ 
-        SearchBarComponent 
+      declarations: [
+        SearchBarComponent
       ],
-      imports: [ 
+      imports: [
         FormsModule
       ]
     })

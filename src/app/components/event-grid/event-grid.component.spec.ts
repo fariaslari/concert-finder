@@ -13,18 +13,18 @@ describe('EventGridComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ 
+      declarations: [
         EventGridComponent,
         EventComponent
       ],
-      imports: [ 
+      imports: [
         FormsModule,
         HttpClientModule,
         BrowserAnimationsModule,
-        MatDatepickerModule, 
-        MatFormFieldModule, 
-        MatInputModule, 
-        MatNativeDateModule, 
+        MatDatepickerModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatNativeDateModule,
         MatProgressSpinnerModule
       ]
     })

@@ -20,7 +20,7 @@ describe('CacheService', () => {
       clear: () => {
         store = {};
       }
-    }
+    };
 
     spyOn(sessionStorage, 'getItem')
       .and.callFake(mockSessionStorage.getItem);

@@ -16,23 +16,23 @@ export class SearchBarComponent implements OnInit {
   constructor(private cache: CacheService) { }
 
   ngOnInit() {
-    let inputCache = this.cache.get('inputSearch');
-    if(inputCache){
+    const inputCache = this.cache.get('inputSearch');
+    if (inputCache) {
       this.artistName = inputCache.toString();
-      this.isSubmited = true; 
+      this.isSubmited = true;
       this.change.emit(this.artistName);
-    }else{
-      this.isSubmited = false; 
+    } else {
+      this.isSubmited = false;
     }
   }
 
-  submit(){
+  submit() {
     this.cache.clean();
     this.cache.set('inputSearch', this.artistName);
     this.filterChanged();
   }
 
-  filterChanged() {  
+  filterChanged() {
       this.isSubmited = true;
       this.change.emit(this.artistName);
   }

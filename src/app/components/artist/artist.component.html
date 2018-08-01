@@ -11,7 +11,7 @@
     <p class="facebook"><a href="{{artistData.facebookPage}}" *ngIf="artistData && artistData.facebookPage" target="_blank"><i class="fa fa-facebook-square"></i></a></p>
   </div>
   <div class="card-artist" *ngIf="!artistData && !loading">
-    <p class="message">It was not possible to load the artist ):</p>
+    <p class="message">It was not possible to load the artist.</p>
   </div>
 <app-event-grid class="card-event" [upcomingEvents]="artistData ? artistData : 0" [filter]="filterData"></app-event-grid>
 </div>
